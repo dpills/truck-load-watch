@@ -1,0 +1,19 @@
+version: "3.2"
+services:
+  bot:
+    image: watcher-bot
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.bot
+    env_file:
+      - .env
+
+  watcher:
+    image: watcher
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.watcher
+    env_file:
+      - .env
